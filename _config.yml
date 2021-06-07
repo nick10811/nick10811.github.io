@@ -19,7 +19,7 @@ author              : Nick Yang
 name                : 'Nick Yang'
 url                 : https://nick10811.github.io/
 
-paginate            : 5
+paginate            : 10
 
 # Custom vars
 version             : 0.1.0

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!-- SEO -->
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html">
+  <meta name="author" content="Nick Yang">
+  <meta name="copyright" content="Nick Yang">
+  <meta name="google-site-verification" content="k__3UkuLW0Sii1xTIEMqhQPH9FK0q80vJRUGjaYhpdo" />
+  <meta name="keywords"
+        content="iOS, Swift, Objective-C, iOS Developer, Mac, watchOS">
+
+  <link rel="contents" title="Archive" href="/Archive">
+  <link rel="start" title="I'm Just A Programmer" href="/">
+
+  
+    <meta property="og:title" content="I'm Just A Programmer" >
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/public/logo.png">
+    <meta property="og:description"
+        content="" >
+    <meta name="description"
+        content="">
+  
+
+  <title>
+    
+      Posts Tagged &#60;crontab&#62; &middot; I'm Just A Programmer
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/custom.min.css">
+  <link href="/public/css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+<body class="theme-base-chocolate">
+    <div class="navbar">
+    <h1>
+        <a class="home-logo" href="/">
+            I'm Just A Programmer
+        </a>
+    </h1>
+
+    <nav>
+        <a href="https://nick10811.github.io/">Articles</a>
+        <a href="https://nick10811.github.io/tags">Tags</a>
+        <a href="https://nick10811.github.io/archive">Archive</a>
+        <a href="https://nick10811.github.io/about">About</a>
+        <!-- 
+        
+            
+                
+            
+        
+            
+                
+                    <a  href="/about/">About</a>
+                
+            
+        
+            
+                
+                    <a  href="/archive/">Archives</a>
+                
+            
+        
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+                    <a  href="/tags/">Tags</a>
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+         -->
+    </nav>
+</div>
+ <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          I'm Just A Programmer
+        </a>
+      </h1>
+      <p class="lead"></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="https://nick10811.github.io/">Articles</a>
+      <a class="sidebar-nav-item" href="https://nick10811.github.io/tags">Tags</a>
+      <a class="sidebar-nav-item" href="https://nick10811.github.io/archive">Archive</a>
+      <a class="sidebar-nav-item" href="https://nick10811.github.io/about">About</a>
+      
+
+      <!-- 
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/archive/">Archives</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags/">Tags</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+      <span class="sidebar-nav-item">
+        <ul class="list-inline text-center">
+          
+          <li>
+              <a href="https://www.linkedin.com/in/nick10811">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-linkedin fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+          
+          
+          <li>
+              <a href="https://github.com/nick10811">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-github fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+          
+          
+          <li>
+            <a href="https://twitter.com/nick10811_">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+      </span>
+    </nav>
+    <p class="copyright">
+        &copy; Copyright 2021 | Nick Yang | All rights reserved
+    </p>
+  </div>
+</div>
+
+    <div class="content container">
+        <h2 class="tag-summary-title">Posts Tagged &#60;crontab&#62;</h2>
+<table class="table table-striped tag-summary">
+  <tbody>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<tr>
+	    <td>
+		    <h3>
+		        <a href="/2016/05/09/how-to-make-schedule-to-clean-logs-on/">
+		            How to make a schedule to clean logs on Linux ?
+		            <small class="subtitle">
+		                <span></span>
+		            </small>
+		        </a>
+		    </h3>
+			<p>
+				<span class="post-date">Posted by Nick Yang on May 9, 2016</span>
+				<small>
+				    <span class="fa-stack fa-sm">
+		                <i class="fa fa-tags fa-stack-1x"></i>
+		            </span> :
+		             <a class="tag-wrapper" href="/tags/log" title="View posts tagged with &quot;log&quot;"><i class="tags">log</i></a>    <a class="tag-wrapper" href="/tags/tmpwatch" title="View posts tagged with &quot;tmpwatch&quot;"><i class="tags">tmpwatch</i></a>    <a class="tag-wrapper" href="/tags/Linux" title="View posts tagged with &quot;Linux&quot;"><i class="tags">Linux</i></a>    <a class="tag-wrapper" href="/tags/crontab" title="View posts tagged with &quot;crontab&quot;"><i class="tags">crontab</i></a>   
+		        </small>
+		        <small class="comment-count">
+			        <span class="fa-stack fa-sm">
+			            <i class="fa fa-comments fa-stack-1x"></i>
+			        </span>
+			        <a href="https://rhadow.github.com/2016/05/09/how-to-make-schedule-to-clean-logs-on/#disqus_thread" data-disqus-identifier="/2016/05/09/how-to-make-schedule-to-clean-logs-on/"></a>
+			    </small>
+	        </p>
+	    </td>
+	</tr>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  </tbody>
+</table>
+ 
+
+    </div>
+    <script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nick10811'; // required: replace example with your forum shortname
+var disqus_identifier = '/tags/crontab/';
+var disqus_url = 'https://nick10811.github.io//tags/crontab/';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59285222-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '636566956443735',
+        xfbml: true,
+        version: 'v2.3'
+    });
+};
+
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+</html>
