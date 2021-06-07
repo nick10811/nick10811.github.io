@@ -1,7 +1,7 @@
-# Rhadow's Tech Note
+# I'm Just A Programmer
 
-Welcome to Rhadow's Tech note! This is a place to share my knowledge and experience on web development. The articles will be focus around any JavaScript related technology.
+Welcome to **I'm Just A Programmer**. This is a place to record my technical articles. Every article is related to iOS development and which is my favorite topic recently.
 
-This blog is made by Jekyll and using [Hyde](https://github.com/poole/hyde) theme as basic theme. If you have any suggestions or questions about this blog, feel free to contact me.
+This blog's theme is inspired by [Rhadow](https://rhadow.github.io). Which is made by Jekyll and using [Hyde](https://github.com/poole/hyde) theme as a basic theme.
 
-Please visit: [https://rhadow.github.io/](https://rhadow.github.io/) to view the site.
+Please visit: [https://nick10811.github.io/](https://nick10811.github.io/) to view the site.
