@@ -1,1 +1,27 @@
-theme: jekyll-theme-dinky
+# Dependencies
+markdown            : kramdown
+redcarpet:
+  extensions        : ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
+highlighter         : rouge
+gems                : ["jekyll-paginate"]
+plugins             : [jekyll-paginate]
+
+# Permalinks
+permalink           : pretty
+
+# Setup
+title               : Rhadow's Tech Note
+tagline             : 'JavaScript, front-end, and web development articles'
+description         : 'News, articles and reviews of a variety of web development frameworks and modules.'
+baseurl             : /
+
+author              : Howard Chang
+name                : 'Howard Chang'
+url                 : https://rhadow.github.io/
+
+paginate            : 5
+
+# Custom vars
+version             : 0.1.0
+twitter_username    : Rhadow3433
+github_username     : Rhadow
