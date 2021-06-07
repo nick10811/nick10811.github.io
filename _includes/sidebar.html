@@ -2,7 +2,7 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>
-        <a href="{{ site.url }}">
+        <a href="{{ site.baseurl }}">
           {{ site.title }}
         </a>
       </h1>
@@ -10,7 +10,7 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item" href="{{ site.url }}">Home</a>
+      <a class="sidebar-nav-item" href="{{ site.baseurl }}">Home</a>
       {% comment %}
         The code below dynamically generates a sidebar nav of pages with
         `layout: page` in the front-matter. See readme for usage.
@@ -26,22 +26,12 @@
       {% endfor %}
       <span class="sidebar-nav-item">
         <ul class="list-inline text-center">
-          {% if site.twitter_username %}
+          {% if site.linkedin_username %}
           <li>
-              <a href="https://twitter.com/{{ site.twitter_username }}">
+              <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
                   <span class="fa-stack fa-lg">
                       <i class="fa fa-circle fa-stack-2x"></i>
-                      <i class="fa fa-twitter fa-stack-1x"></i>
-                  </span>
-              </a>
-          </li>
-          {% endif %}
-          {% if site.facebook_username %}
-          <li>
-              <a href="https://www.facebook.com/{{ site.facebook_username }}">
-                  <span class="fa-stack fa-lg">
-                      <i class="fa fa-circle fa-stack-2x"></i>
-                      <i class="fa fa-facebook fa-stack-1x"></i>
+                      <i class="fa fa-linkedin fa-stack-1x"></i>
                   </span>
               </a>
           </li>
@@ -56,11 +46,21 @@
               </a>
           </li>
           {% endif %}
+          {% if site.twitter_username %}
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username }}">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </span>
     </nav>
     <p class="copyright">
-        &copy; Copyright {{ site.time | date: '%Y' }} | Rhadow's Tech Blog | All rights reserved
+        &copy; Copyright {{ site.time | date: '%Y' }} | {{ site.author }} | All rights reserved
     </p>
   </div>
 </div>

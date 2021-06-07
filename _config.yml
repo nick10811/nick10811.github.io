@@ -10,18 +10,19 @@ plugins             : [jekyll-paginate]
 permalink           : pretty
 
 # Setup
-title               : Rhadow's Tech Note
-tagline             : 'JavaScript, front-end, and web development articles'
-description         : 'News, articles and reviews of a variety of web development frameworks and modules.'
+title               : I'm Just A Programmer
+tagline             : ''
+description         : ''
 baseurl             : /
 
-author              : Howard Chang
-name                : 'Howard Chang'
-url                 : https://rhadow.github.io/
+author              : Nick Yang
+name                : 'Nick Yang'
+url                 : https://nick10811.github.io/
 
 paginate            : 5
 
 # Custom vars
 version             : 0.1.0
-twitter_username    : Rhadow3433
-github_username     : Rhadow
+linkedin_username   : nick10811
+github_username     : nick10811
+twitter_username    : nick10811_
