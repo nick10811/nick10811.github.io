@@ -6,14 +6,17 @@
     </h1>
 
     <nav>
-        <a href="{{ site.baseurl }}">Home</a>
-        {% assign pages_list = site.pages %}
+        <a href="{{ site.baseurl }}">Articles</a>
+        <a href="{{ site.baseurl }}tags">Tags</a>
+        <a href="{{ site.baseurl }}archive">Archive</a>
+        <a href="{{ site.baseurl }}about">About</a>
+        <!-- {% assign pages_list = site.pages %}
         {% for node in pages_list %}
             {% if node.title != null %}
                 {% if node.layout == "page" %}
                     <a  href="{{ node.url }}">{{ node.title }}</a>
                 {% endif %}
             {% endif %}
-        {% endfor %}
+        {% endfor %} -->
     </nav>
 </div>
