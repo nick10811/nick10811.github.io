@@ -314,3 +314,18 @@
 .theme-base-chocolate .related {
     border-top: 1px solid #ddd;
 }
+
+.theme-base-chocolate .lastest_apps {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.theme-base-chocolate .app_container {
+    display: grid;
+    justify-items: center;
+    margin: 20px;
+}
+@media only screen and (max-device-width: 479px), (max-width: 479px) {
+    .theme-base-chocolate .lastest_apps {
+        grid-template-columns: auto auto;
+    }
+}
