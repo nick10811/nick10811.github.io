@@ -2,8 +2,8 @@
 layout: page
 title: About
 ---
-Welcome to Rhadow's Tech note! This is a place to share my knowledge and experience on web development. The articles will be focus around any JavaScript related technology.
+Hello, my name is Nick. I am an iOS developer with a passion for developing innovative Apps. I use Swift or Objective-C to develop iOS/watchOS app and SDK. In addition, I have backend/frontend development experience that involves RESTful Web Service and ReactJS. Recently, I focus on designing clean code architecture, such as MVVM, MVVMC, and improving teamwork in the workspace.
 
-This blog is made by Jekyll and using [Hyde](https://github.com/poole/hyde) theme as basic theme. If you have any suggestions or questions about this blog, feel free to contact me.
+I am interested for computer science, which attracts me to learn new things and participate in Responsible Research and Innovation(RRI). Please feel free to share and discuss with me if you have something innovative idea.
 
-{% include signature.html %}
+<!-- {% include signature.html %} -->
