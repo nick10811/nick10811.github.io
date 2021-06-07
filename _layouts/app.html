@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="page">
+    <h1 class="page-title">{{ page.title }}</h1>
+    <div class="lastest_apps">
+        {% for item in page.apps %}
+        <div class="app_container">
+            <div>
+                <a href="{{ item[1].store }}" target="_blank">
+                    <img height="100"
+                        src="{{ item[1].icon }}"
+                        width="100" />
+                </a>
+            </div>
+            <label><b>{{ item[1].name }}</b></label>
+        </div>
+        {% endfor %}
+    </div>
+</div>
