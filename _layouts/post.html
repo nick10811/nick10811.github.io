@@ -12,13 +12,6 @@ layout: default
     </span>
     : {% for tag in page.tags %} <a class="tag-wrapper" href="/tags/{{ tag }}" title="View posts tagged with &quot;{{ tag }}&quot;"><span class="tags">{{ tag }}</span></a>  {% if forloop.last != true %} {% endif %} {% endfor %}
   </div>
-  <div
-    class="fb-like social-plugins"
-    data-layout="button"
-    data-action="like"
-    data-share="true">
-  </div>
-
 </div>
 
 <!-- {% if page.signature %}
