@@ -17,8 +17,7 @@ baseurl             : /
 
 author              : Nick Yang
 name                : 'Nick Yang'
-# url                 : https://nick10811.github.io/
-url                 : /
+url                 : https://nick10811.github.io/
 
 paginate            : 10
 
