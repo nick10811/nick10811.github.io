@@ -6,4 +6,4 @@ Hello, my name is Nick. I am an iOS developer with a passion for developing inno
 
 I am interested for computer science, which attracts me to learn new things and participate in Responsible Research and Innovation(RRI). Please feel free to share and discuss with me if you have something innovative idea.
 
-<!-- {% include signature.html %} -->
+{% include signature.html %}
