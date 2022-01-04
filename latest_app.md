@@ -2,6 +2,10 @@
 layout  : app
 title   : Latest Apps
 apps    :
+            eese:
+                name: 'EESE'
+                store: 'https://apps.apple.com/tw/app/eese-shop-online-with-ease/id1568432371'
+                icon: 'https://is2-ssl.mzstatic.com/image/thumb/Purple116/v4/1a/6d/c2/1a6dc210-f5d5-070b-afe7-cfed8cb0752d/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp'
             lubn:
                 name: 'Lubn'
                 store: 'https://apps.apple.com/us/app/lubn/id1229949124'
