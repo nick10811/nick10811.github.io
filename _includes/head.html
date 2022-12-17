@@ -20,7 +20,7 @@
   {% if page.signature == true %}
     <meta property="og:title" content="{{ page.title }}" >
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:url" content="{{ page.url }}">
     <meta property="og:image" content="/public/logo.png">
     <meta property="og:description"
         content="{{ page.content | strip_html | truncatewords: 20 }}" >

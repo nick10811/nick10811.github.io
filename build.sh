@@ -11,7 +11,7 @@ jekyll build
 echo ""
 echo "Regenerate tags/"
 rm -rf tags/
-mv _site/tags .
+cp -R _site/tags .
 
 echo ""
 echo "Complete"
