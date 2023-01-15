@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!-- SEO -->
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html">
+  <meta name="author" content="Nick Yang">
+  <meta name="copyright" content="Nick Yang">
+  <meta name="google-site-verification" content="k__3UkuLW0Sii1xTIEMqhQPH9FK0q80vJRUGjaYhpdo" />
+  <meta name="keywords"
+        content="iOS, Swift, Objective-C, iOS Developer, Mac, watchOS, Linux, imjustaprogrammer, im just a programmer, I'm just a programmer">
+
+  <link rel="start" title="I'm Just A Programmer" href="/">
+
+  
+    <meta property="og:title" content="I'm Just A Programmer" >
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/public/logo.png">
+    <meta property="og:description"
+        content="" >
+    <meta name="description"
+        content="">
+  
+
+  <title>
+    
+      Advanced Git: make git tree pretty &middot; I'm Just A Programmer
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/custom.min.css">
+  <link href="/public/css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+<body class="theme-base-chocolate">
+    <div class="navbar">
+    <h1>
+        <a class="home-logo" href="https://nick10811.github.io">
+            I'm Just A Programmer
+        </a>
+    </h1>
+
+    <nav>
+        <a href="/latest_app">Latest Apps</a>
+        <a href="/archive">Archives</a>
+        <a href="/about">About</a>
+        <!-- 
+        
+            
+                
+            
+        
+            
+                
+                    <a  href="/about/">About</a>
+                
+            
+        
+            
+                
+                    <a  href="/archive/">Archives</a>
+                
+            
+        
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+                    <a  href="/publication/">Publications</a>
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+                    <a  href="/tags/">Tags</a>
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+         -->
+    </nav>
+</div>
+ <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="https://nick10811.github.io">
+          I'm Just A Programmer
+        </a>
+      </h1>
+      <p class="lead"></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/latest_app">Latest Apps</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/archive">Archives</a>
+      <a class="sidebar-nav-item" href="/about">About</a>
+      
+
+      <!-- 
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/archive/">Archives</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/publication/">Publications</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags/">Tags</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+      <span class="sidebar-nav-item">
+        <ul class="list-inline text-center">
+          
+          <li>
+              <a href="https://www.linkedin.com/in/nick10811">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-linkedin fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+          
+          
+          <li>
+              <a href="https://github.com/nick10811">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-github fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+          
+          
+          <li>
+            <a href="https://twitter.com/nick10811_">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+      </span>
+    </nav>
+    <p class="copyright">
+        &copy; Copyright 2023 | Nick Yang | All rights reserved
+    </p>
+  </div>
+</div>
+
+    <div class="content container">
+        <div class="post">
+  <h1 class="post-title">Advanced Git: make git tree pretty</h1>
+  <span class="post-date">22 Feb 2022</span>
+  <p>The git commits increase over time, and the git tree might become more ugly. This is hard to find the commit we want when we need to trace the history. As a senior git user, it is a good habit to sort commits before pushing them to the server. This article will teach you a command, <a href="https://git-scm.com/docs/git-rebase">git-rebase</a>.</p>
+
+<h2 id="git-rebase"><a href="https://git-scm.com/docs/git-rebase">Git-rebase</a></h2>
+
+<p>Let me give you an instance to introduce this command. In the beginning, we create a simple git tree. You can also perform the shell as below to create quickly a git tree.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!bin/bash</span>
+
+<span class="nb">mkdir </span>git-tutorial
+<span class="nb">cd </span>git-tutorial
+
+git init
+<span class="nb">echo</span> <span class="s2">"Init"</span> <span class="o">&gt;</span> README.md
+git add README.md
+git commit <span class="nt">-m</span> <span class="s2">"Init"</span>
+
+<span class="nb">echo</span> <span class="s2">"File1"</span> <span class="o">&gt;</span> File1
+git add File1
+git commit <span class="nt">-m</span> <span class="s2">"Add File1"</span>
+
+<span class="nb">echo</span> <span class="s2">"File2"</span> <span class="o">&gt;</span> File2
+git add File2
+git commit <span class="nt">-m</span> <span class="s2">"Add File2"</span>
+
+<span class="nb">echo</span> <span class="s2">"File4"</span> <span class="o">&gt;</span> File4
+git add File4
+git commit <span class="nt">-m</span> <span class="s2">"Add File4"</span>
+
+<span class="nb">echo</span> <span class="s2">"File3"</span> <span class="o">&gt;</span> File3
+git add File3
+git commit <span class="nt">-m</span> <span class="s2">"Add File-3"</span>
+
+<span class="nb">echo</span> <span class="s2">"File5"</span> <span class="o">&gt;</span> File5
+git add File5
+git commit <span class="nt">-m</span> <span class="s2">"Add File5"</span>
+</code></pre></div></div>
+
+<p>The result of the git tree is below. The order is 1, 2, 4, 3, and 5. It is obversely the tree is not in order. Hence, the first thing is to sort all commits in order by ascending.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Init(8a77bbd) -&gt; Add File1(9bc62aa) -&gt; Add File2(0e02641) -&gt; Add File4(501a07c) -&gt; Add File-3(7e7fb03) -&gt; Add File5(32c93d4)
+</code></pre></div></div>
+
+<h3 id="sort-commits">Sort commits</h3>
+
+<p>In order to sort the commits, we add an argument <code class="language-plaintext highlighter-rouge">i</code> behind <code class="language-plaintext highlighter-rouge">git-rebase</code>. This argument helps us enter the interactive mode. And we specify commit <code class="language-plaintext highlighter-rouge">8a77bbd</code> to sort commits behind that.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git rebase <span class="nt">-i</span> 8a77bbd
+</code></pre></div></div>
+
+<p>You will enter the edit mode after the above command. Then you can sort all commits as below video.</p>
+
+<p><img src="/public/advanced_git/git-rebase-sort.gif" alt="git-rebas sort" /></p>
+
+<p>After saving, the current tree as below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Init(8a77bbd) -&gt; File1(9bc62aa) -&gt; Add File2(0e02641) -&gt; Add File-3(bc2b027) -&gt; Add File4(b24c64d) -&gt; Add File5(5537350)
+</code></pre></div></div>
+
+<h3 id="delete-commit">Delete commit</h3>
+
+<p>Delete a commit is an easy way. As we mentioned before, we still use <code class="language-plaintext highlighter-rouge">git rebase -i 8a77bd</code> to do all of the following operations. You can refer to this manual to perform advanced operations.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Commands:</span>
+<span class="c"># p, pick &lt;commit&gt; = use commit</span>
+<span class="c"># r, reword &lt;commit&gt; = use commit, but edit the commit message</span>
+<span class="c"># e, edit &lt;commit&gt; = use commit, but stop for amending</span>
+<span class="c"># s, squash &lt;commit&gt; = use commit, but meld into previous commit</span>
+<span class="c"># f, fixup &lt;commit&gt; = like "squash", but discard this commit's log message</span>
+<span class="c"># x, exec &lt;command&gt; = run command (the rest of the line) using shell</span>
+<span class="c"># b, break = stop here (continue rebase later with 'git rebase --continue')</span>
+<span class="c"># d, drop &lt;commit&gt; = remove commit</span>
+<span class="c"># l, label &lt;label&gt; = label current HEAD with a name</span>
+<span class="c"># t, reset &lt;label&gt; = reset HEAD to a label</span>
+<span class="c"># m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [# &lt;oneline&gt;]</span>
+<span class="c"># .       create a merge commit using the original merge commit's</span>
+<span class="c"># .       message (or the oneline, if no original merge commit was</span>
+<span class="c"># .       specified). Use -c &lt;commit&gt; to reword the commit message.</span>
+</code></pre></div></div>
+
+<p>At this time, we want to delete a commit for File5. So we revise the <code class="language-plaintext highlighter-rouge">pick</code> to <code class="language-plaintext highlighter-rouge">drop</code> on the line for File5.</p>
+
+<p><img src="/public/advanced_git/git-rebase-drop.gif" alt="git-rebas drop" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Init(8a77bbd) -&gt; Add File1(9bc62aa) -&gt; Add File2(0e02641) -&gt; Add File-3(bc2b027) -&gt; Add File4(b24c64d)
+</code></pre></div></div>
+
+<h3 id="reword-commit">Reword commit</h3>
+
+<p>In our tree, you might find we have typos on the commit for File-3. We can use <code class="language-plaintext highlighter-rouge">reword</code> on the commit for File-3 to revise commit message.</p>
+
+<p><img src="/public/advanced_git/git-rebase-reword.gif" alt="git-rebas reword" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Init(8a77bbd) -&gt; Add File1(9bc62aa) -&gt; Add File2(0e02641) -&gt; Add File3(629f780) -&gt; Add File4(50b27db)
+</code></pre></div></div>
+
+<h3 id="merge-two-commits">Merge two commits</h3>
+
+<p>Sometimes, we may find the commits are too much. There is no sense if commits are tiny. Hence, we want to merge those into a single. In this case, we can use <code class="language-plaintext highlighter-rouge">squash</code> or <code class="language-plaintext highlighter-rouge">fixup</code>. <code class="language-plaintext highlighter-rouge">squash</code> would keep the current commit message and merge it with the previous. In the contrast, <code class="language-plaintext highlighter-rouge">fixup</code> keeps the previous commit message. In this demo, I use <code class="language-plaintext highlighter-rouge">squash</code> to merge File3 and File4.</p>
+
+<p><img src="/public/advanced_git/git-rebase-squash.gif" alt="git-rebas squash" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Init(8a77bbd) -&gt; Add File1(9bc62aa) -&gt; Add File2(0e02641) -&gt; Add File3&amp;File4(fa99362)
+</code></pre></div></div>
+
+<h3 id="divide-commit-into-two">Divide commit into two</h3>
+
+<p>Thanks for reading until here even this article is too long. Sometimes, our passion for coding causes us to forget so that the content of a single commit becomes large. It is meaningless if a single commit is large. Because we can not trace it if we have a bug in that. The good way is to keep simple for each commit. Here, I would like to introduce a great operation to you. You can divide a single commit into two. In this demo, we want to divide the previous merging commit into two. We use <code class="language-plaintext highlighter-rouge">edit</code> and <a href="https://git-scm.com/docs/git-reset">git-reset</a>. After making the commit as <code class="language-plaintext highlighter-rouge">edit</code>, we perform <code class="language-plaintext highlighter-rouge">git-reset</code> to make File3&amp;File4 to unstaged status. And then we can divide commits into several commits. Finally, we perform <code class="language-plaintext highlighter-rouge">git rebase --continue</code> to complete this whole operation.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># enter the interactive mode</span>
+<span class="nv">$ </span>git rebase <span class="nt">-i</span> 8a77bd
+<span class="c"># reset to `Add File2`</span>
+<span class="nv">$ </span>git reset 0e02641
+</code></pre></div></div>
+
+<p><img src="/public/advanced_git/git-rebase-edit.gif" alt="git-rebas edit" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Init(8a77bbd) -&gt; Add File1(9bc62aa) -&gt; Add File2(0e02641) -&gt; File3(60901c4) -&gt; File4(180e801)
+</code></pre></div></div>
+
+<h2 id="delete-the-multiple-remote-branches">Delete the Multiple Remote Branches</h2>
+
+<p>In addition to the git commits cause the ugly git tree, but multiple branches might cause it as well. Hence, regular deleting unused branches become more important. Here I provide a command to make an easy way to delete the remote branches.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch <span class="nt">-r</span> | <span class="nb">grep</span> <span class="s1">'origin/feature-*'</span> | <span class="nb">sed</span> <span class="s1">'s/origin\///'</span> | xargs <span class="nt">-I</span> <span class="o">{}</span> git push origin :<span class="o">{}</span>
+</code></pre></div></div>
+
+<h2 id="git-reflog"><a href="https://git-scm.com/docs/git-reflog">Git-reflog</a></h2>
+
+<p>This article introduced an advanced git command, git-rebase. If you are a beginner or not good at git. You might be frustrated if the result is not expected, and do not know how to restore to the original status. The good news is git could record all of the operations including your commit revise every time. Hence, you can try this command to restore your previous status when the result is not expected.</p>
+
+<hr />
+
+<h2 id="git-official-documents">Git Official Documents</h2>
+
+<ul>
+  <li><a href="https://git-scm.com/docs/git-rebase">git-rebase</a></li>
+  <li><a href="https://git-scm.com/docs/git-reset">git-reset</a></li>
+  <li><a href="https://git-scm.com/docs/git-reflog">git-reflog</a></li>
+</ul>
+
+  <div class="post-tag">
+    <span class="fa-stack fa-sm">
+      <i class="fa fa-tags fa-stack-1x"></i>
+    </span>
+    :  <a class="tag-wrapper" href="/tags/Git" title="View posts tagged with &quot;Git&quot;"><span class="tags">Git</span></a>   
+  </div>
+</div>
+
+<div class="message">
+  <img class="profile" src="/public/profile.png" alt="profile-image">
+  <div class="intro-message" style="text-align:justify">
+    Hello, My name is Nick, Taiwanese🇹🇼. I like to develop iOS Apps and use Unix-based operating systems. And, I love reading and
+    traveling to fill to my life. This blog recorded all technical articles which I have faced and solved problems. Please
+    leave your comment to discuss with me.
+  </div>
+</div>
+
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2022/12/17/Automate-the-iOS-App-Development-and-Release-Process-with-Fastlane/">
+            Automate the iOS App Development and Release Process with Fastlane
+            <small>17 Dec 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2022/03/05/Daemon-programming-on-macOS/">
+            Daemon programming on macOS
+            <small>05 Mar 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2022/01/04/Merge-Commits-Among-Different-Repositories/">
+            Merge Commits Among Different Repositories
+            <small>04 Jan 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+ 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'nick10811'; // required: replace example with your forum shortname
+    var disqus_identifier = '/2022/02/22/Advanced-Git-make-git-tree-pretty/';
+    var disqus_url = 'https://nick10811.github.io/2022/02/22/Advanced-Git-make-git-tree-pretty/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </div>
+    <script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nick10811'; // required: replace example with your forum shortname
+var disqus_identifier = '/2022/02/22/Advanced-Git-make-git-tree-pretty/';
+var disqus_url = 'https://nick10811.github.io/2022/02/22/Advanced-Git-make-git-tree-pretty/';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59285222-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '636566956443735',
+        xfbml: true,
+        version: 'v2.3'
+    });
+};
+
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+</html>

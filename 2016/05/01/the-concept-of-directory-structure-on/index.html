@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!-- SEO -->
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html">
+  <meta name="author" content="Nick Yang">
+  <meta name="copyright" content="Nick Yang">
+  <meta name="google-site-verification" content="k__3UkuLW0Sii1xTIEMqhQPH9FK0q80vJRUGjaYhpdo" />
+  <meta name="keywords"
+        content="iOS, Swift, Objective-C, iOS Developer, Mac, watchOS, Linux, imjustaprogrammer, im just a programmer, I'm just a programmer">
+
+  <link rel="start" title="I'm Just A Programmer" href="/">
+
+  
+    <meta property="og:title" content="I'm Just A Programmer" >
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="/public/logo.png">
+    <meta property="og:description"
+        content="" >
+    <meta name="description"
+        content="">
+  
+
+  <title>
+    
+      The concept of directory structure on Linux &middot; I'm Just A Programmer
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/custom.min.css">
+  <link href="/public/css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+<body class="theme-base-chocolate">
+    <div class="navbar">
+    <h1>
+        <a class="home-logo" href="https://nick10811.github.io">
+            I'm Just A Programmer
+        </a>
+    </h1>
+
+    <nav>
+        <a href="/latest_app">Latest Apps</a>
+        <a href="/archive">Archives</a>
+        <a href="/about">About</a>
+        <!-- 
+        
+            
+                
+            
+        
+            
+                
+                    <a  href="/about/">About</a>
+                
+            
+        
+            
+                
+                    <a  href="/archive/">Archives</a>
+                
+            
+        
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+                    <a  href="/publication/">Publications</a>
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+                    <a  href="/tags/">Tags</a>
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+         -->
+    </nav>
+</div>
+ <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="https://nick10811.github.io">
+          I'm Just A Programmer
+        </a>
+      </h1>
+      <p class="lead"></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/latest_app">Latest Apps</a>
+      <a class="sidebar-nav-item" href="/tags">Tags</a>
+      <a class="sidebar-nav-item" href="/archive">Archives</a>
+      <a class="sidebar-nav-item" href="/about">About</a>
+      
+
+      <!-- 
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about/">About</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/archive/">Archives</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/publication/">Publications</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/tags/">Tags</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+       -->
+      <span class="sidebar-nav-item">
+        <ul class="list-inline text-center">
+          
+          <li>
+              <a href="https://www.linkedin.com/in/nick10811">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-linkedin fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+          
+          
+          <li>
+              <a href="https://github.com/nick10811">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-github fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+          
+          
+          <li>
+            <a href="https://twitter.com/nick10811_">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+      </span>
+    </nav>
+    <p class="copyright">
+        &copy; Copyright 2023 | Nick Yang | All rights reserved
+    </p>
+  </div>
+</div>
+
+    <div class="content container">
+        <div class="post">
+  <h1 class="post-title">The concept of directory structure on Linux</h1>
+  <span class="post-date">01 May 2016</span>
+  <div class="p1"><span class="s1"><b><span class="Apple-tab-span"> </span></b></span></div><div class="p2"><div class="p1"><span class="s1"><b><span class="Apple-tab-span"> </span></b></span></div><div class="p2">This article is aimed to provide directory structure information&nbsp;on Linux Operation System. All of the directories are following the Filesystems Hierarchy Standard (FHS). Directories <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="38dbd885-5de3-4183-91b9-4fb06784f1ff" id="cc3317d8-f30c-4c0b-9cf7-ea12bd2e9098">are specified</gs> purpose to store files.</div><div class="p4"><span class="s1"></span><br /></div><ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="d9f36338-e31e-46b9-be73-3fd9faf205be" id="7d2845ee-6095-4ae4-b174-6fc6750a8860"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="390ba6f1-fdc8-412f-ad11-e1b7c5db6ec7" id="f676ec06-095e-45a3-91e9-a060455a2a64">bin</gs></gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="d9f36338-e31e-46b9-be73-3fd9faf205be" id="f6d95aad-aa64-4d78-a9d6-a9407cfcf63d"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="390ba6f1-fdc8-412f-ad11-e1b7c5db6ec7" id="a261dac7-c2de-4d5d-a0c1-8f63d89eabb4"> :</gs></gs> Essential user command binaries (for use all users)</b></span></li><ul><li class="li5"><span class="s1">All the executable binary programs that can be executed by all users<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="362f80a5-fb39-42bc-a188-eb85514d9d23" id="cdb815fd-b8b7-4a47-a035-997020f820d5"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="5bb6aa07-f04a-4154-b027-04cb596854ad" id="74a5a33d-e3a8-40fd-ac09-bb3b5eafb54d"> .</gs></gs></span></li><li class="li5"><span class="s1">E.g. <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="0baa95cb-926a-405f-8d2e-2f40c6c73ec8" id="9ab494c7-f213-4523-b7ea-140a8bac24a9"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="de653f1e-9941-4967-84ad-83e0a7e11468" id="e97805f6-deba-45d5-bc4e-d02372c29d5d">cat</gs></gs>, chmod, chown, date, mv, mkdir, cp, bash, etc.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="f86e8c5f-acde-404f-af67-dbad1fc8167c" id="99828ccb-94d5-4d2b-b63a-abe10ba65b07"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="47cce625-205a-42f5-a7c7-f8d5e242c1aa" id="efb30f22-5933-4e22-9b9b-d3a03475292e">boot</gs></gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="f86e8c5f-acde-404f-af67-dbad1fc8167c" id="63e2d8d3-6281-4a1d-bc3e-0662bd8eb4d5"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="47cce625-205a-42f5-a7c7-f8d5e242c1aa" id="db72b925-79fc-430a-ac02-b5cb4c2babb1"> :</gs></gs> Static files of the boot loader</b></span></li><ul><li class="li5"><span class="s1">It contains every this required for the booting system.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="cb2cc480-c50a-4a44-aae7-72971321ca88" id="fcca1d6c-d352-47bb-bc44-438398dee9cf"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="335abc05-4d17-4a89-aab6-604be83f9dc7" id="3b31b30a-579a-413d-bfb2-c6fb1cb21379">dev</gs></gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="cb2cc480-c50a-4a44-aae7-72971321ca88" id="908cf9fe-4d65-4230-99b2-444f6219af8b"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="335abc05-4d17-4a89-aab6-604be83f9dc7" id="548acb5c-501b-4bbb-8da1-7aecb4f7b58b"> :</gs></gs> Device files</b></span></li><ul><li class="li5"><span class="s1">It is the location of hardware device files.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="4b1be705-37dd-4098-b151-c052db9c402e" id="01eb797b-1b3b-4491-bb94-719fe4dc4fca"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="475066b5-f5c8-4445-ad91-f07e8b27cc42" id="60277f29-8c1d-4b6d-aa53-cb6518fcb5ea">etc</gs></gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="4b1be705-37dd-4098-b151-c052db9c402e" id="21f32a60-7415-4e76-9e8c-4d49f0d58143"><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="475066b5-f5c8-4445-ad91-f07e8b27cc42" id="e792c4c8-fca8-4595-becc-c8c61b4981a5"> :</gs></gs> Host-specific system configuration</b></span></li><ul><li class="li5"><span class="s1">It contains all configuration files for system and Applications. In general, all files that can be viewed by all users. But only root can revise it. It must be static and cannot be an executable binary.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="ba54ac24-186d-4146-b635-18491c15a782" id="405357bc-0e0b-4968-8903-df4c8c9d3047">home</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="ba54ac24-186d-4146-b635-18491c15a782" id="776eb70b-3fd0-4524-881c-d077e09dd116"> :</gs> User home directories</b></span></li><ul><li class="li5"><span class="s1">Home directory of users. Therefore, no program should rely on this location. The space of each user directory is limited by the system.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="5e67a99c-35ab-407d-9649-7a17d89e9b6d" id="8feb52e2-2188-4d0d-8935-bd5c6fa73bc5">lib</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="5e67a99c-35ab-407d-9649-7a17d89e9b6d" id="9da88aad-8d6b-4d8e-a302-6137a99161b6"> :</gs> Essential shared libraries and kernel modules</b></span></li><ul><li class="li5"><span class="s1">This directory contains shared library image which is needed to boot the system.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="19fa752d-753d-4c9b-9edb-745e64a67379" id="24d26f59-d17a-4afc-995d-b0a5008da8ea">media</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="19fa752d-753d-4c9b-9edb-745e64a67379" id="a42db4a8-79e5-48fb-9c76-7b32573af685"> :</gs> Mount point for removable media</b></span></li><ul><li class="li5"><span class="s1">This directory contains subdirectories which are used as mount point for removable media.</span></li><li class="li5"><span class="s1">E.g. <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="1d65c4aa-67c1-4ba5-8f15-eed2ac7dfbcd" id="c9e41555-df0b-495a-9538-02535334caa2">cd-rom</gs>, floppy disk, etc.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="4b9d7d56-b8c8-4d33-b786-5059e29636d3" id="1d219760-f51e-4e9c-bb41-6c4d61d9d18d">mnt</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="4b9d7d56-b8c8-4d33-b786-5059e29636d3" id="6dd1f1a9-206b-45b9-b3a0-1a611fed10b3"> :</gs> Mount point for a temporarily mounted filesystem</b></span></li><ul><li class="li5"><span class="s1">It <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="6a1c299a-d9d4-4144-b9bc-ece850d033f9" id="8c4d3a02-417c-4566-8b4f-d207c7bf6259">provide</gs> you mount temporarily filesystem as needed.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="d6214aa7-3123-4776-8f40-ce83882a40c5" id="00de7735-83ff-426e-8dc5-3023969ede63">opt</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="d6214aa7-3123-4776-8f40-ce83882a40c5" id="2443979e-4d95-4d34-99bd-d7e4d722089c"> :</gs> Add-on application software packages</b></span></li><ul><li class="li5"><span class="s1">Optional is abbreviated as opt. This directory is reserved for the installation of add-on application software packages.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="8d806997-bf21-4aec-9be1-a57231da2ac3" id="bcf03ab4-0969-4b92-9c35-212e46ca456b">root</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="8d806997-bf21-4aec-9be1-a57231da2ac3" id="2b7f64b0-c97b-4c0b-9436-2253ad0743d5"> :</gs> Home directory for the root user</b></span></li><ul><li class="li5"><span class="s1">Super user’s home directory.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="91297e85-31a2-4aba-8485-f8242b21d73f" id="00490ba6-66c8-48a1-a218-7354a9faaf77">sbin</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="91297e85-31a2-4aba-8485-f8242b21d73f" id="af6cf4f0-c41c-41ed-8fa5-d194a6aa373a"> :</gs> System binaries</b></span></li><ul><li class="li5"><span class="s1">Executable binary programs that can be executed&nbsp; only by <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="0855d769-1972-447d-90f2-0491f366a96b" id="28e6bf67-43a1-49ac-bd7c-63d9b5dc20fb">root user</gs>.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="9d77c4b1-bb81-4bc3-b199-d0c63130e107" id="e3ee89fb-6ccb-49b4-8fae-ab533d6871c1">srv</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="9d77c4b1-bb81-4bc3-b199-d0c63130e107" id="caa10363-0cc5-44e3-ac32-80d4e34c0e12"> :</gs> Data for services provided by this system</b></span></li><ul><li class="li5"><span class="s1">Service is abbreviated as <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="2ec51a0d-2cf9-45c2-99ff-60eca3d42a65" id="b2f749d9-a4b8-43ce-b88c-29e22ebf66c5">srv</gs>. It contains site-specific data which are serviced by a server.</span></li><li class="li5"><span class="s1">E.g. WWW, FTP, etc.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="ff2c9d6f-f2a8-421e-ad9c-fe03bfb1c4de" id="3d15d2fa-04e3-4239-9752-962c07a67e57">tmp</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="ff2c9d6f-f2a8-421e-ad9c-fe03bfb1c4de" id="8812a432-e2d7-4bc6-8774-01a0f905ccbe"> :</gs> Temporary files</b></span></li><ul><li class="li5"><span class="s1">Temporary files are written by the program. It can also be stored by the user. But the important files cannot be stored in there. It has a daemon service of <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="82db0b17-699b-43de-ac19-59f0b439a2ac" id="31d4b3cf-8de6-4b57-91a0-86dd973cf2b7">tmpwatch</gs>, which cleans files by a period time.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="bdbf3333-2e8a-4e60-bc4a-b864b3e04324" id="6989bf4a-e40b-4a7e-88c0-68abacd912f1">usr</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="bdbf3333-2e8a-4e60-bc4a-b864b3e04324" id="36fc36b9-b8be-442b-9ac0-bef90e6c345c"> :</gs> Secondary hierarchy</b></span></li><ul><li class="li5"><span class="s1">Unix Shared Resource is abbreviated as <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="b8acc46b-af73-4cd6-a57e-0b28972773a9" id="13533a9f-926b-4a35-b4e9-facd9fe76e5d">usr</gs>. It is the second major section of the filesystem, that contains software packages. /<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="3252c4c8-da57-4da8-8d6e-22b5a6b9bc14" id="05baa3ce-a17e-425c-9ba2-d36d5e5a38e3">usr</gs> is shareable, read-only data.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="8131e372-af41-42a2-81db-b2c638af06e7" id="66f6fdee-504b-4b7b-bcfa-76587d6a8172">var</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="8131e372-af41-42a2-81db-b2c638af06e7" id="e220b91c-25cf-4eba-835d-7e26b4c75a4b"> :</gs> Variable data</b></span></li><ul><li class="li5"><span class="s1">This includes spool directories and files, administrative and logging data, and transient and temporary files.</span></li></ul><li class="li5"><span class="s1"><b>/<gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="6e5b896a-b230-41ca-af05-c5b798e43235" id="a36f1a33-51ba-42b7-89b9-33965ec4c517">proc</gs><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="6e5b896a-b230-41ca-af05-c5b798e43235" id="6b67fe7c-9ba6-4082-8d45-9d9296dd2a66"> :</gs> Kernel and process information virtual filesystem</b></span></li><ul><li class="li5"><span class="s1">A virtual <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="ec5279ec-1e27-4537-9bee-1a3b45183d18" id="2f1d5179-613d-4b65-b3ce-bb9b82c0138e">filesystem</gs> which contains information about running <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="ec5279ec-1e27-4537-9bee-1a3b45183d18" id="04a425d1-5a0e-445f-a03c-1768ecdf2043">process</gs>.</span></li><li class="li5"><span class="s1">E.g. <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="e8f8bacf-8759-4cb0-b8b0-56781fd93bbb" id="5ee9d1f4-cf82-40cc-b010-cdfa29edbc9e">cpuinfo</gs>, <gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="e8f8bacf-8759-4cb0-b8b0-56781fd93bbb" id="db7a47fa-4a38-4fb9-9323-df4183045451">dma</gs>, interrupts, ioports, net, etc.&nbsp;</span></li></ul></ul><div class="p4"><span class="s1"></span><br /></div><br /><div class="p6"><span class="s1"><b>Reference</b><gs class="GINGER_SOFTWARE_mark" ginger_software_uiphraseguid="153feab0-8d8c-4596-ad31-405fce344601" id="fa1fe106-1e2b-4c8a-ab0e-8880b935de19"> :</gs> <a href="http://www.pathname.com/fhs/"><span class="s2">http://www.pathname.com/fhs/</span></a> <b>Filesystem Hierarchy Standard (FHS)</b></span></div></div>
+  <div class="post-tag">
+    <span class="fa-stack fa-sm">
+      <i class="fa fa-tags fa-stack-1x"></i>
+    </span>
+    :  <a class="tag-wrapper" href="/tags/Linux" title="View posts tagged with &quot;Linux&quot;"><span class="tags">Linux</span></a>    <a class="tag-wrapper" href="/tags/Directory Structure" title="View posts tagged with &quot;Directory Structure&quot;"><span class="tags">Directory Structure</span></a>   
+  </div>
+</div>
+
+<div class="message">
+  <img class="profile" src="/public/profile.png" alt="profile-image">
+  <div class="intro-message" style="text-align:justify">
+    Hello, My name is Nick, Taiwanese🇹🇼. I like to develop iOS Apps and use Unix-based operating systems. And, I love reading and
+    traveling to fill to my life. This blog recorded all technical articles which I have faced and solved problems. Please
+    leave your comment to discuss with me.
+  </div>
+</div>
+
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2022/12/17/Automate-the-iOS-App-Development-and-Release-Process-with-Fastlane/">
+            Automate the iOS App Development and Release Process with Fastlane
+            <small>17 Dec 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2022/03/05/Daemon-programming-on-macOS/">
+            Daemon programming on macOS
+            <small>05 Mar 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2022/02/22/Advanced-Git-make-git-tree-pretty/">
+            Advanced Git: make git tree pretty
+            <small>22 Feb 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+ 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'nick10811'; // required: replace example with your forum shortname
+    var disqus_identifier = '/2016/05/01/the-concept-of-directory-structure-on/';
+    var disqus_url = 'https://nick10811.github.io/2016/05/01/the-concept-of-directory-structure-on/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </div>
+    <script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nick10811'; // required: replace example with your forum shortname
+var disqus_identifier = '/2016/05/01/the-concept-of-directory-structure-on/';
+var disqus_url = 'https://nick10811.github.io/2016/05/01/the-concept-of-directory-structure-on/';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59285222-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '636566956443735',
+        xfbml: true,
+        version: 'v2.3'
+    });
+};
+
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+</html>
