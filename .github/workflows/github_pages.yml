@@ -16,15 +16,28 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-      
-      - name: Build the site in the jekyll/builder container
-        run: |
-          docker run \
-          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/vendor/bundle:/usr/local/bundle \
-          jekyll/builder:latest /bin/bash -c "chmod a+w /srv/jekyll && jekyll build --future"
 
+      - name: Build
+        uses: jerryjvl/jekyll-build-action@v1
+
+      - name: Update tags
+        shell: bash
+        run: |
+          rm -rf tags/
+          cp -R _site/tags .
+      
+      - name: Commit tags
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+            commit_message: 'Update tags'
+            commit_options: '--no-verify'
+            commit_user_name: ${{ github.actor }}
+            commit_user_email: ${{ github.actor }}@users.noreply.github.com
+            commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+            file_pattern: 'tags/'
+      
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          publish_dir: ./_site/
