@@ -4,13 +4,112 @@
  <title>I'm Just A Programmer</title>
  <link href="https://nick10811.github.io/atom.xml" rel="self"/>
  <link href="https://nick10811.github.io/"/>
- <updated>2023-01-15T00:52:54-06:00</updated>
+ <updated>2023-01-19T02:38:14-06:00</updated>
  <id>https://nick10811.github.io</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>In-App Purchase (IAP)</title>
+   <link href="https://nick10811.github.io/2023/01/19/in-app-purchase/"/>
+   <updated>2023-01-19T00:00:00-06:00</updated>
+   <id>https://nick10811.github.io/2023/01/19/in-app-purchase</id>
+   <content type="html">&lt;p&gt;There are no opportunities to develop IAP apps in my iOS career. Recently, I began to survey this technique and workflow in Apple after I received requirements from PM. It was a surprise to me that rare iOS developers have this experience. But it is easy to understand everyone does not want to pay 30% of the fee to Apple. &lt;a href=&quot;https://en.wikipedia.org/wiki/Epic_Games_v._Apple&quot;&gt;The famous case is a lawsuit between Epics Games and Apple.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;review-guildelines&quot;&gt;Review Guildelines&lt;/h2&gt;
+&lt;p&gt;In the beginning, let’s read carefully the &lt;a href=&quot;https://developer.apple.com/app-store/review/guidelines/#business&quot;&gt;Review Guidelines&lt;/a&gt; from Apple. It is a good way to understand the basic rules of IAP and ensure your app can be passed by Apple review. Please notice that 3.1.1 and 3.1.3(e) mentioned digital goods, subscriptions, in-game currencies, premium content, or unlocking a full version should be adopted this way. Hence, the streaming platform, and gaming apps should use IAP. But it is allowed to use third-party payment methods for the E-commerce apps with physical goods.&lt;/p&gt;
+
+&lt;h2 id=&quot;in-app-purchase-types&quot;&gt;In-app purchase types&lt;/h2&gt;
+&lt;p&gt;Okay, if you understand the review guidelines, and you have a plan to develop an IAP app, you could keep reading this article.&lt;/p&gt;
+
+&lt;p&gt;There are four types of IAP in Apple. They are Consumable, Non-Consumable, Auto-Renewable Subscription, and Non-Renewing Subscription.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Consumable&lt;/td&gt;
+      &lt;td&gt;A product that is used once, after which it becomes depleted and must be purchased again. Example: fish food in a fishing app.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Non-Consumable&lt;/td&gt;
+      &lt;td&gt;A product that is purchased once and does not expire or decrease with use. Example: Race track for a game app.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Auto-Renewable Subscription&lt;/td&gt;
+      &lt;td&gt;A product that allows users to purchase dynamic content for a set period. This type of Subscription renews automatically unless cancelled by the user. Example: Monthly subscriptions for an app offering streaming services.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Non-Renewing Subscription&lt;/td&gt;
+      &lt;td&gt;A product that allows users to purchase a service with a limited duration. The content of this in-app purchase can be static. This type of Subscription does not renew automatically. Example: One year subscription to a catalog of archived articles.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;workflow-for-configuring-in-app-purchases&quot;&gt;Workflow for configuring in-app purchases&lt;/h2&gt;
+&lt;p&gt;Here are several steps you can follow to configure in-app purchases in App Store Connect and Xcode.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sign the Paid Applications Agreement.
+To offer in-app purchases, you must sign the Paid Applications Agreement. You can sign the agreement in App Store Connect. For more information, see &lt;a href=&quot;https://help.apple.com/app-store-connect/#/devb6df5ee51&quot;&gt;Agreements, Tax, and Banking&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/in-app-purchase/agreement_tax_banking.png&quot; alt=&quot;Agreements, Tax, and Banking&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Configure in-app purchases in App Store Connect.
+Next, you can configure in-app purchases in App Store Connect. For more information, see &lt;a href=&quot;https://help.apple.com/app-store-connect/#/devae49fb316&quot;&gt;Create In-app purchase&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There are two fields you need to fill in, Reference Name and Product ID.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reference Name - A unique name for internal tracking. I could be edited anytime.&lt;/li&gt;
+  &lt;li&gt;Product ID - A unique ID to identify your product. &lt;strong&gt;The Product ID can’t editable after saving. It can’t be used again even if the product is deleted.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/in-app-purchase/create_iap.png&quot; alt=&quot;Create In-app purchase&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Enable in-app purchases in Xcode.
+After you configure in-app purchases in App Store Connect, you can Add the in-app purchase capability to your app in Xcode.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/in-app-purchase/add_iap_capability.png&quot; alt=&quot;Add the in-app purchase capability&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Test in-app purchases in Xcode.
+To test in-app purchases without incurring any charges, Apple provides a testing environment called Sandbox. For more information, see &lt;a href=&quot;https://developer.apple.com/documentation/storekit/in-app_purchase/testing_in-app_purchases_with_sandbox&quot;&gt;Test in-app purchases in Sandbox&lt;/a&gt;. You need to &lt;a href=&quot;https://help.apple.com/app-store-connect/#/dev8b997bee1&quot;&gt;create a sandbox tester account&lt;/a&gt; in App Store Connect.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Notes: It is better to use the &lt;strong&gt;US&lt;/strong&gt; tester in Sandbox. Because it might occur an error message, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Cannot connect to iTunes Store&lt;/code&gt;, when you use other countries’ testers.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/in-app-purchase/sandbox_testers.png&quot; alt=&quot;Test in-app purchases in Sandbox&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;storekit&quot;&gt;StoreKit&lt;/h2&gt;
+&lt;p&gt;After you finish the configuration, you can start to develop your app. Apple provides a framework called StoreKit to help you implement IAP. For more information, see &lt;a href=&quot;https://developer.apple.com/documentation/storekit&quot;&gt;StoreKit&lt;/a&gt;. I think I will write a new article to introduce how to use StoreKit to implement IAP in the future.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/app-store/review/guidelines/#business&quot;&gt;Review Guidelines&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/in-app-purchase/&quot;&gt;Overview of In-App Purchase&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://help.apple.com/app-store-connect/#/devb57be10e7&quot;&gt;Workflow for configuring in-app purchases&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://help.apple.com/app-store-connect/#/dev3cd978dbd&quot;&gt;In-app purchase types&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://help.apple.com/app-store-connect/#/devae49fb316&quot;&gt;Create in-app purchases&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/documentation/storekit&quot;&gt;StoreKit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://help.apple.com/app-store-connect/#/dev84b80958f&quot;&gt;General information&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Automate the iOS App Development and Release Process with Fastlane</title>

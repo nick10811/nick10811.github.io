@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>https://nick10811.github.io2023/01/19/in-app-purchase/</loc>
+    </url>
+
+    <url>
         <loc>https://nick10811.github.io2022/12/17/Automate-the-iOS-App-Development-and-Release-Process-with-Fastlane/</loc>
     </url>
 
@@ -176,6 +180,10 @@
 
     <url>
         <loc>https://nick10811.github.iotags/CI/CD/</loc>
+    </url>
+
+    <url>
+        <loc>https://nick10811.github.iotags/IAP/</loc>
     </url>
 
     <url>
