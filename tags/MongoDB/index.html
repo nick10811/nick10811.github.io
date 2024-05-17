@@ -31,7 +31,7 @@
 
   <title>
     
-      Install NFS server on CentOS &middot; I'm Just A Programmer
+      Posts Tagged &#60;MongoDB&#62; &middot; I'm Just A Programmer
     
   </title>
 
@@ -405,88 +405,159 @@
 </div>
 
     <div class="content container">
-        <div class="post">
-  <h1 class="post-title">Install NFS server on CentOS</h1>
-  <span class="post-date">18 Jul 2017</span>
-  <b>N</b>etwork <b>F</b>ile<b>S</b>ystem (NFS) is created by Sun company. It provide you a service to share files between different machine via network. <a href="http://imjustaprogrammer.blogspot.tw/2016/06/how-to-install-samba-on-centos.html">It is similar with Samba which I mentioned before.</a> But the transport speed is faster than Samba. Because it does not need user to type account and password. The server has white list to allow legal IP to login to access files directly. <br><br/>Install server is very easy. We just use <b><I>yum</I></b> command to find necessary libraries and install automatically. <pre class="brush: bash; gutter: false;"><br />[nick1811@NAS ~]$ sudo yum install nfs-utils nfs-utils-lib<br /></pre>Create white list. We allows all IP in subnetwork(192.168.0.*). And all users have access right for read and write. <pre class="brush: bash; gutter: false;"><br />[nick1811@NAS ~]$ vim /etc/exports<br />/home/nick1811/Shared_Folder 192.168.0.1/24(rw)<br /></pre>Run several startup scripts for the NFS server <pre class="brush: bash; gutter: false;"><br />[nick1811@NAS ~]$ sudo service rpcbind start<br />[nick1811@NAS ~]$ sudo service nfs start<br /></pre>Finally, remember turn on the port in iptables. <pre class="brush: bash; gutter: false;"><br />[nick1811@NAS ~]$ sudo vim /etc/sysconfig/iptables<br /></pre><pre class="brush: bash;"><br /># NFS<br />-A INPUT -m state --state NEW -m tcp -p tcp --dport 2049 -j ACCEPT<br /></pre><pre class="brush: bash; gutter: false;"><br />[nick1811@NAS ~]$ sudo service iptables restart<br />iptables: Setting chains to policy ACCEPT: filter          [  OK  ]<br />iptables: Flushing firewall rules:                         [  OK  ]<br />iptables: Unloading modules:                               [  OK  ]<br />iptables: Applying firewall rules:       <br /></pre><br/><br/>Although we have been set complete. But how to check all setting are correctly? To reach this purpose. I choose other CentOS and install NFS client to do it. <br/><br/>First, we also need to install necessary libraries. <pre class="brush: bash; gutter: false;"><br />[nick1811@Client ~]$ sudo yum install nfs-utils nfs-utils-lib<br /></pre>Second, we use <b><I>showmount</I></b> command to check we can see the shared folder. <pre class="brush: bash; gutter: false;"><br />[nick1811@Client ~]$ showmount -e 192.168.0.1<br />Export list for 192.168.0.1:<br />/home/nick1811/Shared_Folder  192.168.0.1/24<br /></pre>Finally, we mount shared folder to local folder which is we created. <pre class="brush: bash; gutter: false;"><br />[nick1811@Client ~]$ mount 192.168.0.1:/home/nick1811/Shared_Folder /mnt/nfs<br /></pre>When we can put files to /mnt/nfs and we can see files on the server side, we successfully setup NFS server. <br/><br/>Reference: <a href="http://linux.vbird.org/linux_server/0330nfs.php">http://linux.vbird.org/linux_server/0330nfs.php</a>
-  <div class="post-tag">
-    <span class="fa-stack fa-sm">
-      <i class="fa fa-tags fa-stack-1x"></i>
-    </span>
-    :  <a class="tag-wrapper" href="/tags/Linux" title="View posts tagged with &quot;Linux&quot;"><span class="tags">Linux</span></a>    <a class="tag-wrapper" href="/tags/NFS" title="View posts tagged with &quot;NFS&quot;"><span class="tags">NFS</span></a>   
-  </div>
-</div>
-
-<div class="message">
-  <img class="profile" src="/public/profile.png" alt="profile-image">
-  <div class="intro-message" style="text-align:justify">
-    Hello, My name is Nick, Taiwanese🇹🇼. I like to develop iOS Apps and use Unix-based operating systems. And, I love reading and
-    traveling to fill to my life. This blog recorded all technical articles which I have faced and solved problems. Please
-    leave your comment to discuss with me.
-  </div>
-</div>
-
-
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2024/05/17/introduce-the-index-of-mongodb/">
-            Introduce the Index of MongoDB
-            <small>17 May 2024</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2023/01/19/in-app-purchase/">
-            In-App Purchase (IAP)
-            <small>19 Jan 2023</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2022/12/17/Automate-the-iOS-App-Development-and-Release-Process-with-Fastlane/">
-            Automate the iOS App Development and Release Process with Fastlane
-            <small>17 Dec 2022</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
+        <h2 class="tag-summary-title">Posts Tagged &#60;MongoDB&#62;</h2>
+<table class="table table-striped tag-summary">
+  <tbody>
+	
+	
+	
+	<tr>
+	    <td>
+		    <h3>
+		        <a href="/2024/05/17/introduce-the-index-of-mongodb/">
+		            Introduce the Index of MongoDB
+		            <small class="subtitle">
+		                <span></span>
+		            </small>
+		        </a>
+		    </h3>
+			<p>
+				<span class="post-date">Posted by Nick Yang on May 17, 2024</span>
+				<small>
+				    <span class="fa-stack fa-sm">
+		                <i class="fa fa-tags fa-stack-1x"></i>
+		            </span> :
+		             <a class="tag-wrapper" href="/tags/MongoDB" title="View posts tagged with &quot;MongoDB&quot;"><i class="tags">MongoDB</i></a>    <a class="tag-wrapper" href="/tags/Indexes" title="View posts tagged with &quot;Indexes&quot;"><i class="tags">Indexes</i></a>   
+		        </small>
+		        <small class="comment-count">
+			        <span class="fa-stack fa-sm">
+			            <i class="fa fa-comments fa-stack-1x"></i>
+			        </span>
+			        <!-- <a href="https://rhadow.github.com/2024/05/17/introduce-the-index-of-mongodb/#disqus_thread" data-disqus-identifier="/2024/05/17/introduce-the-index-of-mongodb/"></a> -->
+			    </small>
+	        </p>
+	    </td>
+	</tr>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  </tbody>
+</table>
  
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'nick10811'; // required: replace example with your forum shortname
-    var disqus_identifier = '/2017/07/18/install-nfs-server-on-centos/';
-    var disqus_url = 'https://nick10811.github.io/2017/07/18/install-nfs-server-on-centos/';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
     </div>
     <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 var disqus_shortname = 'nick10811'; // required: replace example with your forum shortname
-var disqus_identifier = '/2017/07/18/install-nfs-server-on-centos/';
-var disqus_url = 'https://nick10811.github.io/2017/07/18/install-nfs-server-on-centos/';
+var disqus_identifier = '/tags/MongoDB/';
+var disqus_url = 'https://nick10811.github.io/tags/MongoDB/';
 
 /* * * DON'T EDIT BELOW THIS LINE * * */
 (function() {

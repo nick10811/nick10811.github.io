@@ -4,13 +4,179 @@
  <title>I'm Just A Programmer</title>
  <link href="https://nick10811.github.io/atom.xml" rel="self"/>
  <link href="https://nick10811.github.io/"/>
- <updated>2023-07-15T03:11:56-05:00</updated>
+ <updated>2024-05-17T02:17:28-05:00</updated>
  <id>https://nick10811.github.io</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Introduce the Index of MongoDB</title>
+   <link href="https://nick10811.github.io/2024/05/17/introduce-the-index-of-mongodb/"/>
+   <updated>2024-05-17T00:00:00-05:00</updated>
+   <id>https://nick10811.github.io/2024/05/17/introduce-the-index-of-mongodb</id>
+   <content type="html">&lt;h2 id=&quot;what-are-indexes-for&quot;&gt;What are indexes for&lt;/h2&gt;
+
+&lt;p&gt;The primary function of indexes is to improve the performance of queries and update/sort operations. For instance, when searching for all pages in a book containing a certain word or phrase, you can refer to the index to quickly locate the associated page numbers. The index provides a quick way to find the information you need without having to read the entire book.&lt;/p&gt;
+
+&lt;p&gt;Similarly, a MongoDB index stores a small portion of the data set in an easy-to-traverse form. Without indexes, the database engine must scan every document in a collection to return query results. This can be slow and resource-intensive, especially for large collections.&lt;/p&gt;
+
+&lt;h2 id=&quot;prefix-compression&quot;&gt;Prefix Compression&lt;/h2&gt;
+
+&lt;p&gt;Index prefix compression deduplicates common prefixes in a compound index. It can reduce memory and disk space requirements for indexes. MongoDB uses prefix compression on all indexes, including single-key indexes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://devopedia.org/images/article/159/6930.1553271271.jpg&quot; alt=&quot;prefix encoding&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ref: &lt;a href=&quot;https://devopedia.org/database-compression&quot;&gt;https://devopedia.org/database-compression&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;misconceptions&quot;&gt;Misconceptions&lt;/h2&gt;
+
+&lt;h3 id=&quot;mongodb-is-so-fast-that-it-doesnt-need-indexes&quot;&gt;MongoDB is so fast that it doesn’t need indexes&lt;/h3&gt;
+
+&lt;p&gt;MongoDB is fast, but it’s not magic. Indexes are still important for performance. Without indexes, MongoDB must perform a collection scan.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;INFO&lt;/strong&gt; The query is fast enough if the data is less than 10,000 records.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;every-field-is-automatically-indexed&quot;&gt;Every field is automatically indexed&lt;/h3&gt;
+
+&lt;p&gt;MongoDB automatically creates an index on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_id&lt;/code&gt; field. You can also create indexes on other fields to improve query performance. Not all fields are indexed by default, so it is essential to create indexes on fields you query often.&lt;/p&gt;
+
+&lt;p&gt;In an ideal scenario, all fields would be indexed, but this can consume a lot of memory and disk space while also slowing down write operations. It’s important to balance the benefits of indexing with the costs.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;HINT&lt;/strong&gt; Up to 64 indexes per collection is allowed. 4 indexes per collection is a good rule of thumb.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;nosql-uses-hashes-instead-of-indexes&quot;&gt;NoSQL uses hashes instead of indexes&lt;/h3&gt;
+
+&lt;p&gt;NoSQL databases like MongoDB use indexes to improve query performance.&lt;/p&gt;
+
+&lt;h2 id=&quot;index-types&quot;&gt;Index Types&lt;/h2&gt;
+
+&lt;p&gt;MongoDB provides several types of indexes to support specific types of queries and data models. Indexes can be created on any field in a document, including fields within arrays. MongoDB provides the following types of indexes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Single Field&lt;/li&gt;
+  &lt;li&gt;Multikey&lt;/li&gt;
+  &lt;li&gt;Compound&lt;/li&gt;
+  &lt;li&gt;Text&lt;/li&gt;
+  &lt;li&gt;Hashed&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;single-field&quot;&gt;Single Field&lt;/h3&gt;
+
+&lt;p&gt;Single Field indexes store information from a single field in a collection. By default, MongoDB creates a unique index on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_id&lt;/code&gt; field in every collection. You can also create single field indexes on other fields in a collection to speed up important queries and operations.&lt;/p&gt;
+
+&lt;h4 id=&quot;create-a-single-field-index&quot;&gt;Create a Single Field Index&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sortOrder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;HINT&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sortOrder&lt;/code&gt; can be either &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; for ascending or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-1&lt;/code&gt; for descending.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;multikey&quot;&gt;Multikey&lt;/h3&gt;
+
+&lt;p&gt;Multikey indexes are indexes on arrays. When you create an index on a field that contains an array value, MongoDB automatically creates a multikey index. If an array field contains multiple instances of the same value, the index will store the value only once.&lt;/p&gt;
+
+&lt;h4 id=&quot;create-a-multikey-index&quot;&gt;Create a Multikey Index&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arrayField&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sortOrder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;compound&quot;&gt;Compound&lt;/h3&gt;
+
+&lt;p&gt;Compound indexes index from two or more fields in each document in a collection. This is the most common index type in MongoDB. While it is often to use 3 or 4 fields in a compound index, MongoDB supports up to 32 fields in a compound index. It is similar to a single field index, but it can improve query performance for queries that use multiple fields. It is important to note that the order of the fields in a compound index matters.&lt;/p&gt;
+
+&lt;h4 id=&quot;create-a-compound-index&quot;&gt;Create a Compound Index&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;field1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sortOrder1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;field2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sortOrder2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;esr-principle&quot;&gt;ESR Principle&lt;/h4&gt;
+
+&lt;p&gt;The ESR principle is a good rule of thumb for creating compound indexes. It stands for Equality, Sort, and Range. When creating a compound index, you should consider the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Equality&lt;/strong&gt;: Fields that are used in equality queries should come first in the index.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sort&lt;/strong&gt;: Fields that are used in sort queries should come next in the index.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Range&lt;/strong&gt;: Fields that are used in range queries should come last in the index.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Example:
+We want to query Alice’s lastest month’s login records.
+1st. it should match the user name, Alice.
+2nd. it should sort the records by the login time.
+3th. it should find the records in the lastest month.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;text&quot;&gt;Text&lt;/h3&gt;
+
+&lt;p&gt;Text indexes support full-text search of string content. Text indexes can include any field whose value is a string or an array of string elements.&lt;/p&gt;
+
+&lt;h4 id=&quot;create-a-text-index&quot;&gt;Create a Text Index&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;field1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;text 1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;field2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;text 2&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;hashed&quot;&gt;Hashed&lt;/h3&gt;
+
+&lt;p&gt;Hashed indexes index a 20 byte md5 of the BSON value. It can potentially reduce index size if original values are large.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;DOWNSIDE&lt;/strong&gt; radom values in a BTree use excessive resources.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;create-a-hashed-index&quot;&gt;Create a Hashed Index&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hashed&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
+
+&lt;p&gt;Indexes can improve read performance when used. However, each index adds ~10% overhead to write (insert, delete, update) operations. (Hashed indexes, multikey indexes, text indexes, and wildcard indexes can add more overhead.)&lt;/p&gt;
+
+&lt;h3 id=&quot;explain&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;explain()&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;explain()&lt;/code&gt; method provides information on the query plan and index usage. You can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;explain()&lt;/code&gt; method to analyze query performance and optimize indexes.&lt;/p&gt;
+
+&lt;h4 id=&quot;example&quot;&gt;Example&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;explain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;executionStats&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;use-indexes-with-care&quot;&gt;Use Indexes with Care&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Use Indexes to Support Queries&lt;/strong&gt;: Indexes can improve query performance, but they can also slow down write operations. Use indexes to support queries that are important to your application.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Avoid Over-Indexing&lt;/strong&gt;: Indexes consume memory and disk space. Avoid creating indexes on fields that are rarely queried.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Monitor Index Usage&lt;/strong&gt;: Use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;explain()&lt;/code&gt; method to monitor index usage and query performance. Optimize indexes based on query performance.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/indexes/&quot;&gt;Indexes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.mongodb.com/resources/basics/databases/database-index&quot;&gt;What is indexing in a Database&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://devopedia.org/database-compression&quot;&gt;Database Compression&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sciencedirect.com/topics/mathematics/prefix-code#:~:text=In%20other%20words%2C%20a%20prefix,bits%20to%20a%20shorter%20codeword.&quot;&gt;Prefix Code&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.mongodb.com/docs/manual/reference/command/explain/&quot;&gt;explain()&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>In-App Purchase (IAP)</title>

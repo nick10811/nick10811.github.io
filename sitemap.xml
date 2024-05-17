@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>https://nick10811.github.io2024/05/17/introduce-the-index-of-mongodb/</loc>
+    </url>
+
+    <url>
         <loc>https://nick10811.github.io2023/01/19/in-app-purchase/</loc>
     </url>
 
@@ -184,6 +188,14 @@
 
     <url>
         <loc>https://nick10811.github.iotags/IAP/</loc>
+    </url>
+
+    <url>
+        <loc>https://nick10811.github.iotags/MongoDB/</loc>
+    </url>
+
+    <url>
+        <loc>https://nick10811.github.iotags/Indexes/</loc>
     </url>
 
     <url>
